@@ -16,7 +16,7 @@
                                             <h1><i class="cc BTC warning font-large-2" title="BTC"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>أجمالي المبيعات</h4>
+                                            <h4>{{ __('admin/dashboard.total_sales_word') }}</h4>
                                         </div>
                                         <div class="col-5 text-right">
                                             <h4>$9,980</h4>
@@ -40,7 +40,7 @@
                                             <h1><i class="cc ETH blue-grey lighten-1 font-large-2" title="ETH"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>أجمالي الطلبات</h4>
+                                            <h4>{{ __('admin/dashboard.total_orders_word') }}</h4>
                                         </div>
                                         <div class="col-5 text-right">
                                             <h4>$944</h4>
@@ -64,10 +64,10 @@
                                             <h1><i class="cc XRP info font-large-2" title="XRP"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>عدد المنتجات</h4>
+                                            <h4>{{ __('admin/dashboard.number_of_products') }}</h4>
                                         </div>
                                         <div class="col-5 text-right">
-                                            <h4>$1.2</h4>
+                                            <h4>400</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -88,10 +88,10 @@
                                             <h1><i class="cc XRP info font-large-2" title="XRP"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>عدد العملاء</h4>
+                                            <h4>{{ __('admin/dashboard.number_of_clients') }}</h4>
                                         </div>
                                         <div class="col-5 text-right">
-                                            <h4>$1.2</h4>
+                                            <h4>20000</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -111,7 +111,7 @@
                     <div class="col-12 col-xl-8">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">آخر الطلبات</h4>
+                                <h4 class="card-title">{{ __('admin/dashboard.last_orders_word') }}</h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 {{--  <div class="heading-elements">
                                     <p class="text-muted">Total BTC available: 6542.56585</p>
@@ -122,11 +122,11 @@
                                     <table class="table table-de mb-0">
                                         <thead>
                                         <tr>
-                                            <th>رقم الطلب</th>
-                                            <th>العميل</th>
-                                            <th>السعر</th>
-                                            <th>حالة الطلب</th>
-                                            <th>الإجمالي</th>
+                                            <th>{{ __('admin/dashboard.order_number_col') }}</th>
+                                            <th>{{ __('admin/dashboard.order_client_name_col') }}</th>
+                                            <th>{{ __('admin/dashboard.order_price_col') }}</th>
+                                            <th>{{ __('admin/dashboard.order_status_col') }}</th>
+                                            <th>{{ __('admin/dashboard.order_total_col') }}</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -146,7 +146,7 @@
                     <div class="col-12 col-xl-4">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">آخر التقييمات</h4>
+                                <h4 class="card-title">{{ __('admin/dashboard.last_rating_word') }}</h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 {{--  <div class="heading-elements">
                                     <p class="text-muted">Total USD available: 9065930.43</p>
@@ -157,9 +157,9 @@
                                     <table class="table table-de mb-0">
                                         <thead>
                                         <tr>
-                                            <th>العميل</th>
-                                            <th>المنتج</th>
-                                            <th>التقييم</th>
+                                            <th>{{ __('admin/dashboard.client_rating_name_col') }}</th>
+                                            <th>{{ __('admin/dashboard.product_rating_name_col') }}</th>
+                                            <th>{{ __('admin/dashboard.rating_mark_col') }}</th>
                                         </tr>
                                         </thead>
                                         <tbody>
