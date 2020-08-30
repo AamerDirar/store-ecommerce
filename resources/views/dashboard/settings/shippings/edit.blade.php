@@ -8,10 +8,13 @@
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="">الرئيسية </a>
+                            <li class="breadcrumb-item">
+                                <a href="{{ route('admin.dashboard') }}">
+                                    {{ __('admin/settings/shippings.home_word') }}
+                                </a>
                             </li>
-
-                            <li class="breadcrumb-item active">وسائل التوصيل
+                            <li class="breadcrumb-item active">
+                                {{ __('admin/settings/shippings.shipping_methods_word') }}
                             </li>
                         </ol>
                     </div>
@@ -25,7 +28,9 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title" id="basic-layout-form"> تعديل وسيلة التوصيل </h4>
+                                <h4 class="card-title" id="basic-layout-form">
+                                    {{ __('admin/settings/shippings.edit_shipping_method') }}
+                                </h4>
                                 <a class="heading-elements-toggle"><i
                                         class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
@@ -52,7 +57,9 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> الاسم </label>
+                                                        <label for="projectinput1">
+                                                            {{ __('admin/settings/shippings.shipping_method_name') }}
+                                                        </label>
                                                         <input type="text" value="{{ $shippingMethod -> value }}" id="value"
                                                                class="form-control"
                                                                name="value">
@@ -63,7 +70,9 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> قيمة التوصيل </label>
+                                                        <label for="projectinput1">
+                                                            {{ __('admin/settings/shippings.shipping_method_cost') }}
+                                                        </label>
                                                         <input type="number" id="plain_value"
                                                                class="form-control" value="{{ $shippingMethod -> plain_value }}"
                                                                name="plain_value">
@@ -75,12 +84,13 @@
                                             </div>
                                         </div>
                                         <div class="form-actions">
-                                            <button type="button" class="btn btn-warning mr-1"
-                                                    onclick="history.back();">
-                                                <i class="ft-x"></i> تراجع
-                                            </button>
                                             <button type="submit" class="btn btn-primary">
-                                                <i class="la la-check-square-o"></i> تحديث
+                                                <i class="la la-check-square-o"></i>
+                                                {{ __('admin/settings/shippings.shipping_update_btn') }}
+                                            </button>
+                                            <button type="button" class="btn btn-warning mr-1" onclick="history.back();">
+                                                <i class="ft-x"></i>
+                                                {{ __('admin/settings/shippings.shipping_reset_btn') }}
                                             </button>
                                         </div>
                                     </form>
