@@ -25,7 +25,7 @@
             <li class="nav-item"><a href="#"><i class="la la-group"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{ __('admin/sidebar.main_catgories') }}</span>
                     <span
-                        class="badge badge badge-danger badge-pill float-right mr-2">{{ \App\Models\Category::parent()->count() }}</span>
+                        class="badge badge badge-danger badge-pill float-right mr-2">{{ \App\Models\Category::count() }}</span>
                 </a>
                 <ul class="menu-content">
                     <li class="active">
@@ -41,7 +41,7 @@
                 </ul>
             </li>
 
-            <li class="nav-item"><a href=""><i class="la la-group"></i>
+            {{-- <li class="nav-item"><a href=""><i class="la la-group"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{ __('admin/sidebar.sub_categories') }}</span>
                     <span
                         class="badge badge badge-danger badge-pill float-right mr-2">{{ \App\Models\Category::child()->count() }}</span>
@@ -53,21 +53,35 @@
                     <li><a class="menu-item" href="{{ route('admin.subcategories.create') }}" data-i18n="nav.dash.crypto">{{ __('admin/sidebar.add_new_sub_category') }}</a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
 
             <li class="nav-item"><a href=""><i class="la la-group"></i>
                 <span class="menu-title" data-i18n="nav.dash.main">الماركات التجارية</span>
                 <span
                     class="badge badge badge-danger badge-pill float-right mr-2">{{ \App\Models\Brand::count() }}</span>
-            </a>
-            <ul class="menu-content">
-                <li class="active"><a class="menu-item" href="{{ route('admin.brands') }}"
-                                      data-i18n="nav.dash.ecommerce">{{ __('admin/sidebar.show_all') }}</a>
-                </li>
-                <li><a class="menu-item" href="{{ route('admin.brands.create') }}" data-i18n="nav.dash.crypto">إضافة ماركة تجارية جديدة</a>
-                </li>
-            </ul>
-        </li>
+                </a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{ route('admin.brands') }}"
+                                        data-i18n="nav.dash.ecommerce">{{ __('admin/sidebar.show_all') }}</a>
+                    </li>
+                    <li><a class="menu-item" href="{{ route('admin.brands.create') }}" data-i18n="nav.dash.crypto">إضافة ماركة تجارية جديدة</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item"><a href=""><i class="la la-group"></i>
+                <span class="menu-title" data-i18n="nav.dash.main">الوسوم</span>
+                <span
+                    class="badge badge badge-danger badge-pill float-right mr-2">{{ \App\Models\Tag::count() }}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{ route('admin.tags') }}"
+                                        data-i18n="nav.dash.ecommerce">{{ __('admin/sidebar.show_all') }}</a>
+                    </li>
+                    <li><a class="menu-item" href="{{ route('admin.tags.create') }}" data-i18n="nav.dash.crypto">إضافة وسم جديد</a>
+                    </li>
+                </ul>
+            </li>
 
             <li class="nav-item"><a href=""><i class="la la-male"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{ __('admin/sidebar.stores') }}  </span>

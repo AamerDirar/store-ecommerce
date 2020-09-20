@@ -70,7 +70,9 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
                                                     <div class="form-group mt-1">
                                                         <input type="checkbox"  value="1" name="is_active"
                                                             id="switcheryColor4"

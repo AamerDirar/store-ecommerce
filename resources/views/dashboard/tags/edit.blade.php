@@ -9,9 +9,9 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">الرئيسية </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{ route('admin.brands') }}"> الماركات التجارية </a>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.brands') }}">الوسوم</a>
                                 </li>
-                                <li class="breadcrumb-item active">  - تعديل {{ $brand->name }}
+                                <li class="breadcrumb-item active">  - تعديل {{ $tag->name }}
                                 </li>
                             </ol>
                         </div>
@@ -25,7 +25,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> تعديل ماركة تجارية</h4>
+                                    <h4 class="card-title" id="basic-layout-form"> تعديل وسم</h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -41,39 +41,21 @@
                                 @include('dashboard.includes.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                    <form class="form" action="{{ route('admin.brands.update', $brand->id) }}" method="POST"
+                                    <form class="form" action="{{ route('admin.tags.update', $tag->id) }}" method="POST"
                                             enctype="multipart/form-data">
                                         @csrf
-                                        <input name="id" value="{{ $brand->id }}" type="hidden">
-
-                                        <div class="form-group">
-                                            <div class="text-center">
-                                                <img src="{{ $brand->photo }}" alt="صورة القسم" class="rounded-circle height-250">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>صورة الماركة</label>
-                                            <label id="projectinput1" class="file center-block">
-                                                <input type="file" id="file" name="photo">
-                                                <span class="file-custom"></span>
-                                            </label>
-                                            @error('photo')
-                                            <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-
-                                        </div>
+                                        <input name="id" value="{{ $tag->id }}" type="hidden">
 
                                         <div class="form-body">
-                                            <h4 class="form-section"><i class="ft-home"></i>  بيانات الماركة التجارية  </h4>
+                                            <h4 class="form-section"><i class="ft-home"></i>  بيانات الوسم  </h4>
 
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> اسم الماركة</label>
+                                                        <label for="projectinput1"> اسم الوسم</label>
                                                         <input type="text" id="name"
                                                             class="form-control"
-                                                            value="{{ $brand->name }}"
+                                                            value="{{ $tag->name }}"
                                                             name="name">
                                                         @error("name")
                                                             <span class="text-danger">{{ $message }}</span>
@@ -81,14 +63,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <div class="form-group mt-1">
-                                                        <input type="checkbox"  value="1" name="is_active"
-                                                            id="switcheryColor4"
-                                                            class="switchery" data-color="success"
-                                                            @if($brand->is_active == 1) checked @endif />
-                                                        <label for="switcheryColor4"
-                                                            class="card-title ml-1">الحالة </label>
-                                                        @error("is_active")
+                                                    <div class="form-group">
+                                                        <label for="projectinput1"> اسم الوسم بالرابط</label>
+                                                        <input type="text" id="slug"
+                                                            class="form-control"
+                                                            value="{{ $tag->slug }}"
+                                                            name="slug">
+                                                        @error("slug")
                                                             <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
