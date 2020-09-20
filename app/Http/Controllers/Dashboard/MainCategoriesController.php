@@ -11,13 +11,14 @@ class MainCategoriesController extends Controller
 {
     public function index()
     {
-        $categories = Category::parent()->orderBy('id', 'DESC')->paginate(PAGINATION_COUNT);
+        $categories = Category::with('_parent')->orderBy('id', 'DESC')->paginate(PAGINATION_COUNT);
         return view('dashboard.categories.index', compact('categories'));
     }
 
     public function create()
     {
-        return view('dashboard.categories.create');
+        $categories = Category::select('id', 'parent_id')->get();
+        return view('dashboard.categories.create', compact('categories'));
     }
 
     public function store(MainCategoryRequest $request)
@@ -26,11 +27,21 @@ class MainCategoriesController extends Controller
 
             DB::beginTransaction();
 
+            // validation
+
             if (!$request->has('is_active'))
                 $request->request->add(['is_active' => 0]);
             else
                 $request->request->add(['is_active' => 1]);
 
+            // if user choose main category then we must remove parent id from the request
+
+            if ($request->type == 1)  // main category
+            {
+                $request->request->add(['parent_id' => null ]);
+            }
+
+            // if he choose child category we must add parent id
 
             $category = Category::create($request->except('_token'));
 
@@ -85,7 +96,7 @@ class MainCategoriesController extends Controller
     public function destroy($id)
     {
         try {
-            $category = Category::orderBy('id', 'DESC')->find($id);
+            $category = Category::find($id);
 
             if (!$category)
                 return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود']);
