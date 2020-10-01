@@ -3,7 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use DB;
+use Illuminate\Support\Facades\DB;
+
 
 class CreateProductTranslationsTable extends Migration
 {
@@ -15,7 +16,7 @@ class CreateProductTranslationsTable extends Migration
     public function up()
     {
         Schema::create('product_translations', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('product_id')->unsigned();
             $table->string('locale');
             $table->string('name');

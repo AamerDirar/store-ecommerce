@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('slug')->unique();
             $table->decimal('price', 18, 4)->unsigned();
             $table->decimal('special_price', 18, 4)->unsigned()->nullable();
-            $table->string('special_price_type')->nullable()->after('special_price');
+            $table->string('special_price_type')->nullable();
             $table->date('special_price_start')->nullable();
             $table->date('special_price_end')->nullable();
             $table->decimal('selling_price', 18, 4)->unsigned()->nullable();
@@ -28,7 +28,7 @@ class CreateProductsTable extends Migration
             $table->boolean('in_stock');
             $table->integer('viewed')->unsigned()->default(0);
             $table->boolean('is_active');
-            $table->integer('brand_id')->unsigned()->nullable()->after('id');
+            $table->integer('brand_id')->unsigned()->nullable();
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('set null');
             $table->softDeletes();
             $table->timestamps();
