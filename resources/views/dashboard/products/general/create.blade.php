@@ -8,9 +8,9 @@
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="">الرئيسية </a>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">الرئيسية </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="">
+                                <li class="breadcrumb-item"><a href="{{ route('admin.products') }}">
                                         المنتجات </a>
                                 </li>
                                 <li class="breadcrumb-item active"> أضافه منتج
@@ -106,12 +106,11 @@
                                                         <div class="form-group">
                                                             <label for="projectinput1"> الوصف المختصر
                                                             </label>
-                                                            <textarea  name="short-description" id="short-description"
+                                                            <textarea  name="short_description" id="short_description"
                                                                        class="form-control"
-                                                                       placeholder=""
-                                                            >{{old('short-description')}}</textarea>
+                                                                       placeholder="">{{old('short_description')}}</textarea>
 
-                                                            @error("short-description")
+                                                            @error("short_description")
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
@@ -144,7 +143,7 @@
                                                         <div class="form-group">
                                                             <label for="projectinput1"> اختر ألعلامات الدلالية
                                                             </label>
-                                                            <select name="tags" class="select2 form-control" multiple>
+                                                            <select name="tags[]" class="select2 form-control" multiple>
                                                                 <optgroup label=" اختر ألعلامات الدلالية ">
                                                                     @if($tags && $tags -> count() > 0)
                                                                         @foreach($tags as $tag)
