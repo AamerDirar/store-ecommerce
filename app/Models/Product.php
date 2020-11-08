@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use Translatable,SoftDeletes;
+    use Translatable, SoftDeletes;
 
     /**
      * The relation to eager load on every query.
@@ -51,12 +51,12 @@ class Product extends Model
     ];
 
 
-     /**
+    /**
      * The accessors to append to the model's array form.
      *
      * @var array
      */
-   /* protected $appends = [
+    /* protected $appends = [
         'base_image', 'formatted_price', 'rating_percent', 'is_in_stock', 'is_out_of_stock',
         'is_new', 'has_percentage_special_price', 'special_price_percent',
     ];*/
@@ -67,6 +67,16 @@ class Product extends Model
      * @var array
      */
     protected $translatedAttributes = ['name', 'description', 'short_description'];
+
+    public function getActive()
+    {
+        return $this->is_active == 0 ? 'غير مفعل' :  'مفعل';
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', 1);
+    }
 
     public function brand()
     {
@@ -83,9 +93,8 @@ class Product extends Model
         return $this->belongsToMany(Tag::class, 'product_tags');
     }
 
-
-
-
-
-
+    public function options()
+    {
+        return $this->hasMany(Option::class, 'product_id');
+    }
 }

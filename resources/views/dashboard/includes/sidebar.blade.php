@@ -83,20 +83,53 @@
                 </ul>
             </li>
 
-            <li class="nav-item"><a href=""><i class="la la-group"></i>
-                <span class="menu-title" data-i18n="nav.dash.main">المنتجات</span>
-                <span
-                    class="badge badge badge-danger badge-pill float-right mr-2">{{ \App\Models\Product::count() }}</span>
-            </a>
-            <ul class="menu-content">
-                <li class="active">
-                    <a class="menu-item" href="" data-i18n="nav.dash.ecommerce">{{ __('admin/sidebar.show_all') }}</a>
-                </li>
-                <li>
-                    <a class="menu-item" href="" data-i18n="nav.dash.crypto">إضافة منتج جديد</a>
-                </li>
-            </ul>
-        </li>
+            <li class="nav-item">
+                <a href="">
+                    <i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">المنتجات</span>
+                    <span class="badge badge badge-danger badge-pill float-right mr-2">{{ \App\Models\Product::count() }}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{ route('admin.products') }}" data-i18n="nav.dash.ecommerce">{{ __('admin/sidebar.show_all') }}</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{ route('admin.products.general.create') }}" data-i18n="nav.dash.crypto">إضافة منتج جديد</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a href="">
+                    <i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">خصائص المنتج</span>
+                    <span class="badge badge badge-danger badge-pill float-right mr-2">{{ \App\Models\Attribute::count() }}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{ route('admin.attributes') }}" data-i18n="nav.dash.ecommerce">{{ __('admin/sidebar.show_all') }}</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{ route('admin.attributes.create') }}" data-i18n="nav.dash.crypto">إضافة خاصية جديدة</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a href="">
+                    <i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قيم الخصائص</span>
+                    <span class="badge badge badge-danger badge-pill float-right mr-2">{{ \App\Models\Option::count() }}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{ route('admin.options') }}" data-i18n="nav.dash.ecommerce">{{ __('admin/sidebar.show_all') }}</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{ route('admin.options.create') }}" data-i18n="nav.dash.crypto">إضافة قيمة جديدة</a>
+                    </li>
+                </ul>
+            </li>
 
             <li class="nav-item"><a href=""><i class="la la-male"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{ __('admin/sidebar.stores') }}  </span>
@@ -108,6 +141,34 @@
                                           data-i18n="nav.dash.ecommerce"> {{ __('admin/sidebar.show_all') }}</a>
                     </li>
                     <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">{{ __('admin/sidebar.add_new_store') }}</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
+                data-i18n="nav.templates.main">{{ __('admin/sidebar.settings') }}</span></a>
+                <ul class="menu-content">
+                    <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main">{{ __('admin/sidebar.shipping_methods') }}</a>
+                        <ul class="menu-content">
+                            <li><a class="menu-item" href="{{ route('edit.shippings.methods', 'free') }}"
+                                data-i18n="nav.templates.vert.classic_menu">{{ __('admin/sidebar.free_shipping') }}</a>
+                            </li>
+                            <li><a class="menu-item" href="{{ route('edit.shippings.methods', 'inner') }}">{{ __('admin/sidebar.inner_shipping') }}</a>
+                            </li>
+                            <li><a class="menu-item" href="{{ route('edit.shippings.methods', 'outer') }}"
+                                data-i18n="nav.templates.vert.compact_menu">{{ __('admin/sidebar.outer_shipping') }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="menu-item" href="#" data-i18n="nav.templates.horz.main">Horizontal</a>
+                        <ul class="menu-content">
+                            <li><a class="menu-item" href="../horizontal-menu-template"
+                                data-i18n="nav.templates.horz.classic">Classic</a>
+                            </li>
+                            <li><a class="menu-item" href="../horizontal-menu-template-nav"
+                                data-i18n="nav.templates.horz.top_icon">Full Width</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </li>
@@ -127,8 +188,7 @@
                     </li>
                 </ul>
             </li>  --}}
-
-
+            {{-- Settings Area --}}
             {{--  <li class="nav-item">
                 <a href=""><i class="la la-male"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">تذاكر المراسلات   </span>
@@ -142,41 +202,13 @@
                 </ul>
             </li>  --}}
 
-
-            <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
-                                                                                    data-i18n="nav.templates.main">{{ __('admin/sidebar.settings') }}</span></a>
-                <ul class="menu-content">
-                    <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main">{{ __('admin/sidebar.shipping_methods') }}</a>
-                        <ul class="menu-content">
-                            <li><a class="menu-item" href="{{ route('edit.shippings.methods', 'free') }}"
-                                   data-i18n="nav.templates.vert.classic_menu">{{ __('admin/sidebar.free_shipping') }}</a>
-                            </li>
-                            <li><a class="menu-item" href="{{ route('edit.shippings.methods', 'inner') }}">{{ __('admin/sidebar.inner_shipping') }}</a>
-                            </li>
-                            <li><a class="menu-item" href="{{ route('edit.shippings.methods', 'outer') }}"
-                                   data-i18n="nav.templates.vert.compact_menu">{{ __('admin/sidebar.outer_shipping') }}</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.templates.horz.main">Horizontal</a>
-                        <ul class="menu-content">
-                            <li><a class="menu-item" href="../horizontal-menu-template"
-                                   data-i18n="nav.templates.horz.classic">Classic</a>
-                            </li>
-                            <li><a class="menu-item" href="../horizontal-menu-template-nav"
-                                   data-i18n="nav.templates.horz.top_icon">Full Width</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class=" navigation-header">
+            {{-- <li class=" navigation-header">
                 <span data-i18n="nav.category.layouts">Layouts</span><i class="la la-ellipsis-h ft-minus"
                                                                         data-toggle="tooltip"
                                                                         data-placement="right"
                                                                         data-original-title="Layouts"></i>
-            </li>
-            <li class=" nav-item"><a href="#"><i class="la la-columns"></i><span class="menu-title"
+            </li> --}}
+            {{-- <li class=" nav-item"><a href="#"><i class="la la-columns"></i><span class="menu-title"
                                                                                  data-i18n="nav.page_layouts.main">Page layouts</span><span
                         class="badge badge badge-pill badge-danger float-right mr-2">New</span></a>
                 <ul class="menu-content">
@@ -222,8 +254,8 @@
                                     sticky right sidebar</a>
                             </li>
                         </ul>
-                    </li>
-                    <li class="navigation-divider"></li>
+                    </li> --}}
+                    {{-- <li class="navigation-divider"></li>
                     <li><a class="menu-item" href="layout-fixed-navbar.html" data-i18n="nav.page_layouts.fixed_navbar">Fixed
                             navbar</a>
                     </li>
@@ -255,10 +287,10 @@
                     </li>
                     <li><a class="menu-item" href="layout-semi-dark.html" data-i18n="nav.page_layouts.semi_dark_layout">Semi
                             dark layout</a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
-            <li class=" nav-item"><a href="#"><i class="la la-navicon"></i><span class="menu-title"
+            {{-- <li class=" nav-item"><a href="#"><i class="la la-navicon"></i><span class="menu-title"
                                                                                  data-i18n="nav.navbars.main">Navbars</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="navbar-light.html" data-i18n="nav.navbars.nav_light">Navbar Light</a>
@@ -605,8 +637,8 @@
                         </ul>
                     </li>
                 </ul>
-            </li>
-            <li class=" navigation-header">
+            </li> --}}
+            {{-- <li class=" navigation-header">
                 <span data-i18n="nav.category.pages">Pages</span><i class="la la-ellipsis-h ft-minus"
                                                                     data-toggle="tooltip"
                                                                     data-placement="right"
@@ -808,8 +840,8 @@
                            data-i18n="nav.other_pages.under_maintenance">Maintenance</a>
                     </li>
                 </ul>
-            </li>
-            <li class=" navigation-header">
+            </li> --}}
+            {{-- <li class=" navigation-header">
                 <span data-i18n="nav.category.ui">User Interface</span><i class="la la-ellipsis-h ft-minus"
                                                                           data-toggle="tooltip"
                                                                           data-placement="right"
@@ -1081,8 +1113,8 @@
                            data-i18n="nav.form_layouts.form_layout_striped_labels">Striped Labels</a>
                     </li>
                 </ul>
-            </li>
-            <li class=" nav-item"><a href="#"><i class="la la-paste"></i><span class="menu-title"
+            </li> --}}
+            {{-- <li class=" nav-item"><a href="#"><i class="la la-paste"></i><span class="menu-title"
                                                                                data-i18n="nav.form_wizard.main">Form Wizard</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="form-wizard-circle-style.html"
@@ -1303,8 +1335,8 @@
             </li>
             <li class=" nav-item"><a href="add-on-block-ui.html"><i class="la la-terminal"></i><span class="menu-title"
                                                                                                      data-i18n="nav.add_on_block_ui.main">Block UI</span></a>
-            </li>
-            <li class=" nav-item"><a href="add-on-image-cropper.html"><i class="la la-crop"></i><span class="menu-title"
+            </li> --}}
+            {{-- <li class=" nav-item"><a href="add-on-image-cropper.html"><i class="la la-crop"></i><span class="menu-title"
                                                                                                       data-i18n="nav.add_on_image_cropper.main">Image Cropper</span></a>
             </li>
             <li class=" nav-item"><a href="add-on-drag-drop.html"><i class="la la-mouse-pointer"></i><span
@@ -1509,8 +1541,8 @@
                            data-i18n="nav.chartist.chartist_pie_charts">Pie charts</a>
                     </li>
                 </ul>
-            </li>
-            <li class=" nav-item"><a href="morris-charts.html"><i class="la la-share-alt"></i><span class="menu-title"
+            </li> --}}
+            {{-- <li class=" nav-item"><a href="morris-charts.html"><i class="la la-share-alt"></i><span class="menu-title"
                                                                                                     data-i18n="nav.morris_charts.main">Morris Charts</span></a>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-bolt"></i><span class="menu-title"
@@ -1591,7 +1623,7 @@
                         class="la la-text-height"></i>
                     <span class="menu-title" data-i18n="nav.support_documentation.main">Documentation</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </div>
